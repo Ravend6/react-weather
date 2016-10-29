@@ -10,9 +10,10 @@ export default class WeatherForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault()
     let location = this.refs.location.value
+    let titleLocation = location.substr(0, 1).toUpperCase() + location.substr(1)
     if (location.length > 0) {
       this.refs.location.value = ''
-      this.props.onSearch(location)
+      this.props.onSearch(titleLocation)
     }
   }
 

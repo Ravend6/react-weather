@@ -11,8 +11,9 @@ export default class Nav extends React.Component {
   onSearch(e) {
     e.preventDefault()
     let location = this.refs.search.value
-    let encodedLocation = encodeURIComponent(location)
-    if (location.length > 0) {
+    let titleLocation = location.substr(0, 1).toUpperCase() + location.substr(1)
+    let encodedLocation = encodeURIComponent(titleLocation)
+    if (titleLocation.length > 0) {
       this.refs.search.value = ''
       window.location.hash = '#/?location=' + encodedLocation
     }

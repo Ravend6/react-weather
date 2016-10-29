@@ -11,7 +11,7 @@ export function getTemp(location) {
     if (res.data.cod && res.data.message) {
       throw new Error(res.data.message)
     } else {
-      return res.data.main.temp
+      return Math.round(res.data.main.temp)
     }
   }).catch(function (err) {
     throw new Error(err.message)
