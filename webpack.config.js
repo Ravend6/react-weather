@@ -67,6 +67,12 @@ const config = {
 
 config.plugins.push(new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery'}))
 
+config.plugins.push(new webpack.DefinePlugin({
+  'process.env': {
+    'NODE_ENV': JSON.stringify(NODE_ENV)
+  }
+}))
+
 if (NODE_ENV === 'production') {
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
