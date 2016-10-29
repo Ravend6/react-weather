@@ -28,9 +28,9 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "start": "npm run client-dev",
-    "start-heroku": "node ./server/index.js",
-    "start2": "concurrently \"npm run client-dev\" \"npm run server-dev\"",
+    "start": "node ./server/index.js",
+    "start2": "npm run client-dev",
+    "start3": "concurrently \"npm run client-dev\" \"npm run server-dev\"",
     "client-dev": "./node_modules/.bin/webpack-dev-server",
     "client-prod": "./node_modules/.bin/webpack",
     "server-dev": "echo \"TODO\"",
