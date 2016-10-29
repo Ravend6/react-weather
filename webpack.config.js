@@ -4,9 +4,7 @@ const webpack = require('webpack')
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const IS_TEST = (NODE_ENV === 'test')
 
-// const clientDir = path.resolve(__dirname)
-// const clientSrcDir = path.resolve(clientDir, 'src')
-// const clientBuildDir = path.resolve(clientDir, 'build')
+const clientDir = path.resolve(__dirname, 'client')
 const publicDir = path.resolve(__dirname, 'public')
 const excludeDirs = /(node_modules|bower_components)/
 
@@ -14,7 +12,8 @@ const config = {
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
-    './client/app.jsx',
+    clientDir + '/app.jsx',
+    // './client/app.jsx',
   ],
   externals: {
     jquery: 'jQuery'
@@ -26,7 +25,7 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  plugins: [new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV), IS_TEST})],
+  plugins: [],
   module: {
     loaders: [
       {
@@ -69,7 +68,8 @@ config.plugins.push(new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery'}))
 
 config.plugins.push(new webpack.DefinePlugin({
   'process.env': {
-    'NODE_ENV': JSON.stringify(NODE_ENV)
+    'NODE_ENV': JSON.stringify(NODE_ENV),
+    'IS_TEST': IS_TEST,
   }
 }))
 
