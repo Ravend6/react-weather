@@ -3,9 +3,7 @@ const webpack = require('webpack')
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const IS_TEST = (NODE_ENV === 'test')
-// const clientDir = path.resolve(__dirname, 'client')
-// const clientSrcDir = path.resolve(clientDir, 'src')
-// const clientBuildDir = path.resolve(clientDir, 'build')
+
 const clientDir = path.resolve(__dirname)
 // const clientSrcDir = path.resolve(clientDir, 'src')
 // const clientBuildDir = path.resolve(clientDir, 'build')
