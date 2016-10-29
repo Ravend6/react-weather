@@ -25,6 +25,7 @@
   "parser": "babel-eslint",
   "globals": {
     "NODE_ENV": true,
-    "IS_TEST": true
+    "IS_TEST": true,
+    "Foundation": true
   }
 }

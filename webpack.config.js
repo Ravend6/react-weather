@@ -11,7 +11,14 @@ const publicDir = path.resolve(__dirname, 'public')
 const excludeDirs = /(node_modules|bower_components)/
 
 const config = {
-  entry: './client/app.jsx',
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './client/app.jsx',
+  ],
+  externals: {
+    jquery: 'jQuery'
+  },
   output: {
     path: publicDir,
     filename: 'dist/bundle.js'
