@@ -4,16 +4,17 @@ const webpack = require('webpack')
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const IS_TEST = (NODE_ENV === 'test')
 
-const clientDir = path.resolve(__dirname)
+// const clientDir = path.resolve(__dirname)
 // const clientSrcDir = path.resolve(clientDir, 'src')
 // const clientBuildDir = path.resolve(clientDir, 'build')
+const publicDir = path.resolve(__dirname, 'public')
 const excludeDirs = /(node_modules|bower_components)/
 
 const config = {
-  entry: './src/app.jsx',
+  entry: './client/app.jsx',
   output: {
-    path: __dirname,
-    filename: './dist/bundle.js'
+    path: publicDir,
+    filename: 'dist/bundle.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -50,7 +51,7 @@ const config = {
   devServer: {
     host: 'localhost',
     port: 8080,
-    contentBase: clientDir,
+    contentBase: publicDir,
     // proxy: {
     //   '*': 'http://localhost:3000'
     // }
